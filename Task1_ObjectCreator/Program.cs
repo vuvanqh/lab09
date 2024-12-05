@@ -7,11 +7,42 @@ namespace Task1_ObjectCreator
         static void Main(string[] args)
         {
             // Part 1
-            Author author = TypeCrafter.TypeCraft<Author>();
-            Console.WriteLine(author);
+            try
+            {
+                Author author = TypeCrafter.TypeCraft<Author>();
+                Console.WriteLine(author);
+            }
+            catch (ParseException)
+            {
+                try
+                {
+                    Author author = TypeCrafter.TypeCraft<Author>();
+                    Console.WriteLine(author);
+                }
+                catch(ParseException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
             // Part 2
-            Book book = TypeCrafter.TypeCraft<Book>();
-            Console.WriteLine(book);
+            try
+            {
+                Book book = TypeCrafter.TypeCraft<Book>();
+                Console.WriteLine(book);
+            }
+            catch (ParseException)
+            {
+                try
+                {
+                    Book book = TypeCrafter.TypeCraft<Book>();
+                    Console.WriteLine(book);
+                }
+                catch (ParseException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            
         }
     }
 }
